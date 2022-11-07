@@ -1,0 +1,13 @@
+#!/bin/bash
+wget -c -i rpiserversetupdl
+bash rpisystumup-setup
+system-update
+sudo apt install neofetch tmux
+mv neofetch-config.conf .config/neofetch/config.conf
+cat bashrcadd >> .bashrc
+. /etc/os-release
+echo "deb http://deb.debian.org/debian ${VERSION_CODENAME}-backports main" > \
+    /etc/apt/sources.list.d/backports.list
+system-update
+sudo apt install cockpit
+
